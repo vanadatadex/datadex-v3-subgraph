@@ -5,9 +5,29 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "cross-env ts-node ./script/build",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+
+    "prepare:moksha": "mustache config/moksha/config.json v3-subgraph.template.yaml > subgraph.yaml",
+    "prepare:moksha-tokens": "mustache config/moksha/config.json v3-tokens-subgraph.template.yaml > subgraph.yaml",
+
+    "prepare:vana": "mustache config/vana/config.json v3-subgraph.template.yaml > subgraph.yaml",
+    "prepare:vana-tokens": "mustache config/vana/config.json v3-tokens-subgraph.template.yaml > subgraph.yaml",
+
+    "codegen": "graph codegen",
+
+    "manual-copy-testnet": "cp -r config/moksha/chain.ts src/common/chain.ts && cp -r config/moksha/.subgraph-env .",
+    "manual-copy-mainnet": "cp -r config/vana/chain.ts src/common/chain.ts && cp -r config/vana/.subgraph-env .",
+
+    "build-standard": "graph build",
+
+    "goldsky:deploy-testnet": "npx @goldskycom/cli subgraph deploy uniswap-v3-moksha/1.0.0 --path .",
+    "goldsky:deploy-mainnet": "npx @goldskycom/cli subgraph deploy uniswap-v3-vana/1.0.0 --path .",
+
+    "goldsky:testnet": "yarn prepare:moksha && yarn manual-copy-testnet && yarn codegen && yarn build-standard && yarn goldsky:deploy-testnet",
+    "goldsky:mainnet": "yarn prepare:vana && yarn manual-copy-mainnet && yarn codegen && yarn build-standard && yarn goldsky:deploy-mainnet"
   },
   "devDependencies": {
+    "@goldskycom/cli": "^12.0.0",
     "@graphprotocol/graph-cli": "^0.64.1",
     "@graphprotocol/graph-ts": "^0.32.0",
     "@types/fs-extra": "^11.0.1",
