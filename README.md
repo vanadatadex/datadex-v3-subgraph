@@ -38,6 +38,8 @@ yarn goldsky:testnet
 yarn goldsky:mainnet
 ```
 
+---
+
 🔁 Versioning
 Default deployment uses version: 1.0.0
 
@@ -60,6 +62,9 @@ npx @goldskycom/cli subgraph tag uniswap-v3-moksha/X.Y.Z prod
 # Untag a version
 npx @goldskycom/cli subgraph untag uniswap-v3-moksha/X.Y.Z prod
 ```
+
+---
+
 🧱 Subgraph Build & Deployment (Manual)
 You can also build/deploy without Goldsky wrappers:
 
@@ -73,6 +78,8 @@ Build & Deploy V3-Tokens Subgraph
 yarn build --network <network> --subgraph-type v3-tokens [--deploy]
 ```
 Note: Deployments will fail if there are uncommitted changes in the subgraph. Please commit your changes before deploying.
+
+---
 
 📁 Directory Overview
 config/vana/ – Mainnet config for Vana (Chain ID 1480)
