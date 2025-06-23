@@ -24,6 +24,7 @@ It indexes Uniswap V3-like smart contracts on Vana’s testnet and mainnet.
 | Moksha (Testnet) | `14800`  | `config/moksha/config.json` |
 | Vana (Mainnet)   | `1480`   | `config/vana/config.json`   |
 
+---
 
 🚀 Deploy Commands
 
@@ -82,6 +83,7 @@ Note: Deployments will fail if there are uncommitted changes in the subgraph. Pl
 ---
 
 📁 Directory Overview
+
 config/vana/ – Mainnet config for Vana (Chain ID 1480)
 
 config/moksha/ – Testnet config for Moksha (Chain ID 14800)
@@ -95,11 +97,13 @@ template.env / .subgraph-env – Environment variables
 ---
 
 📜 License
+
 GNU GPLv3
 
 ---
 
 🫱🏽‍🫲🏼 Acknowledgements
+
 Based on the open-source Uniswap V3 subgraph. Extended and customized for the Vana ecosystem.
 
 
